@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 export default function App() {
-	const { register, errors, handleSubmit } = useForm();
+    const { register, errors, handleSubmit } = useForm();
+    const [user, setUser] = useState({})
+    
+    const onSubmit = data => {
+        const user = data;
+        axios.post('https://reqres.in/api/users/2', user)
+        .then(res => setUser(res.data))
+        .catch(err => console.log(err))
+    }
+
+    console.log(user)
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>

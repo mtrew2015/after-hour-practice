@@ -6,7 +6,6 @@ import Form from '../Form/Form';
     return (
         <div>
             <Form/>
-            <h1>I created the landing page</h1>
         </div>
     )
 }
